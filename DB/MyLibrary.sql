@@ -81,3 +81,25 @@ CREATE TABLE IF NOT EXISTS BookStatus
     StatusName VARCHAR(50),
     CONSTRAINT StatusPK PRIMARY KEY (StatusID)
 );
+
+
+USE MyLibrary;
+
+#INSERT INTO BookStatus VALUES (, '');
+INSERT INTO BookStatus VALUES (1, 'Start');
+INSERT INTO BookStatus VALUES (2, 'In Process');
+INSERT INTO BookStatus VALUES (3, 'Done');
+
+#INSERT INTO LGroup VALUES (, '');
+INSERT INTO LGroup VALUES (1, 'Admin');
+INSERT INTO LGroup VALUES (2, 'User');
+
+#INSERT INTO Autor VALUES (, '', '');
+INSERT INTO Autor VALUES (1, 'Эл', 'Свейгарт');
+INSERT INTO Autor VALUES (2, 'Кеннет', 'Рейтц');
+INSERT INTO Autor VALUES (3, 'Таня', 'Шлюссер');
+
+
+#SELECT * FROM BookStatus;
+#SELECT * FROM LGroup;
+#SELECT * FROM Autor;
