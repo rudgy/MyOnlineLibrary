@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Library
 
 CREATE TABLE IF NOT EXISTS LUser
 (
-	UserID INT NOT NULL,
+	UserID INT NOT NULL AUTO_INCREMENT,
     UName VARCHAR(50),
     ULastName VARCHAR(50),
     UNickName VARCHAR(50),
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS LUser
 
 CREATE TABLE IF NOT EXISTS LGroup
 (
-	GroupID INT NOT NULL,
+	GroupID INT NOT NULL AUTO_INCREMENT,
     GName VARCHAR(50),
     CONSTRAINT GroupPK PRIMARY KEY (GroupID)
 );
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS LGroup
 #DROP TABLE IF NOT EXISTS Book;
 CREATE TABLE IF NOT EXISTS Book
 (
-	BookID INT NOT NULL,
+	BookID INT NOT NULL AUTO_INCREMENT,
     AutorID INT,
     ReleaseData YEAR,
     CountPage INT,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS Book
 #DROP TABLE IF NOT EXISTS Autor;
 CREATE TABLE IF NOT EXISTS Autor
 (
-	AutorID INT NOT NULL REFERENCES Book(BookID),
+	AutorID INT NOT NULL AUTO_INCREMENT REFERENCES Book(BookID),
     AutorName VARCHAR(30),
     LastName VARCHAR(30),
     CONSTRAINT AutorPK PRIMARY KEY (AutorID)
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS Autor
 #DROP TABLE IF NOT EXISTS Typography;
 CREATE TABLE IF NOT EXISTS Typography
 (
-	TypographyID INT NOT NULL REFERENCES Book(TypographyID),
+	TypographyID INT NOT NULL AUTO_INCREMENT REFERENCES Book(TypographyID),
     TypographyName VARCHAR(50),
     City VARCHAR(50),
     CONSTRAINT TypografyPK PRIMARY KEY (TypographyID)
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS Typography
 #DROP TABLE IF NOT EXISTS BookLanguage;
 CREATE TABLE IF NOT EXISTS BookLanguage
 (
-	LanguageID INT NOT NULL REFERENCES Book(LanguageID),
+	LanguageID INT NOT NULL AUTO_INCREMENT REFERENCES Book(LanguageID),
     LanguageName VARCHAR(50),
     CONSTRAINT BookLanguagePK PRIMARY KEY (LanguageID)
 );
@@ -70,14 +70,14 @@ CREATE TABLE IF NOT EXISTS BookLanguage
 #DROP TABLE IF NOT EXISTS Genre;
 CREATE TABLE IF NOT EXISTS Genre
 (
-	GenreID INT NOT NULL REFERENCES Book(GenreID),
+	GenreID INT NOT NULL AUTO_INCREMENT REFERENCES Book(GenreID),
     GenreName VARCHAR(50),
     CONSTRAINT GenrePK PRIMARY KEY (GenreID)
 );
 #DROP TABLE IF NOT EXISTS BookStatus;
 CREATE TABLE IF NOT EXISTS BookStatus
 (
-	StatusID INT NOT NULL REFERENCES Book(StatusID),
+	StatusID INT NOT NULL AUTO_INCREMENT REFERENCES Book(StatusID),
     StatusName VARCHAR(50),
     CONSTRAINT StatusPK PRIMARY KEY (StatusID)
 );
@@ -85,21 +85,31 @@ CREATE TABLE IF NOT EXISTS BookStatus
 
 USE MyLibrary;
 
-#INSERT INTO BookStatus VALUES (, '');
-INSERT INTO BookStatus VALUES (1, 'Start');
-INSERT INTO BookStatus VALUES (2, 'In Process');
-INSERT INTO BookStatus VALUES (3, 'Done');
+#INSERT INTO BookStatus VALUES (id, StatusName);
+INSERT INTO BookStatus (StatusName) VALUES ('Start');
+INSERT INTO BookStatus (StatusName) VALUES ('In Process');
+INSERT INTO BookStatus (StatusName) VALUES ('Done');
 
-#INSERT INTO LGroup VALUES (, '');
-INSERT INTO LGroup VALUES (1, 'Admin');
-INSERT INTO LGroup VALUES (2, 'User');
+#INSERT INTO LGroup VALUES (id, GName);
+INSERT INTO LGroup (GName) VALUES ('Admin');
+INSERT INTO LGroup (GName) VALUES ('User');
 
-#INSERT INTO Autor VALUES (, '', '');
-INSERT INTO Autor VALUES (1, 'Эл', 'Свейгарт');
-INSERT INTO Autor VALUES (2, 'Кеннет', 'Рейтц');
-INSERT INTO Autor VALUES (3, 'Таня', 'Шлюссер');
+#INSERT INTO Autor VALUES (id, AutorName, LastName);
+INSERT INTO Autor (AutorName, LastName) VALUES ('Эл', 'Свейгарт');
+INSERT INTO Autor (AutorName, LastName) VALUES ('Кеннет', 'Рейтц');
+INSERT INTO Autor (AutorName, LastName) VALUES ('Таня', 'Шлюссер');
+
+#INSERT INTO Genre VALUES (id, GenreName);
+INSERT INTO Genre (GenreName) VALUES ('Non—fiction');
+INSERT INTO Genre (GenreName) VALUES ('Light fiction');
+INSERT INTO Genre (GenreName) VALUES ('Science-fiction');
+INSERT INTO Genre (GenreName) VALUES ('Cook—books');
+INSERT INTO Genre (GenreName) VALUES ('Dictionary');
+INSERT INTO Genre (GenreName) VALUES ('Series');
+INSERT INTO Genre (GenreName) VALUES ('Fantasy');
 
 
 #SELECT * FROM BookStatus;
 #SELECT * FROM LGroup;
 #SELECT * FROM Autor;
+#SELECT * FROM Genre;
