@@ -98,6 +98,8 @@ INSERT INTO LGroup (GName) VALUES ('User');
 INSERT INTO Autor (AutorName, LastName) VALUES ('Эл', 'Свейгарт');
 INSERT INTO Autor (AutorName, LastName) VALUES ('Кеннет', 'Рейтц');
 INSERT INTO Autor (AutorName, LastName) VALUES ('Таня', 'Шлюссер');
+INSERT INTO Autor (AutorName, LastName) VALUES ('Марк', 'Лутц');
+INSERT INTO Autor (AutorName, LastName) VALUES ('Крістофер', 'Ларсен');
 
 #INSERT INTO Genre VALUES (id, GenreName);
 INSERT INTO Genre (GenreName) VALUES ('Non—fiction');
@@ -107,6 +109,22 @@ INSERT INTO Genre (GenreName) VALUES ('Cook—books');
 INSERT INTO Genre (GenreName) VALUES ('Dictionary');
 INSERT INTO Genre (GenreName) VALUES ('Series');
 INSERT INTO Genre (GenreName) VALUES ('Fantasy');
+
+#INSERT INTO Typography VALUES (id, TypographyName, City);
+INSERT INTO Typography (TypographyName, City) VALUES ('Диалектика', 'Санкт-Петербург');
+INSERT INTO Typography (TypographyName, City) VALUES ('Питер', 'Санкт-Петербург');
+INSERT INTO Typography (TypographyName, City) VALUES ('Українське видання', 'Україна');
+INSERT INTO Typography (TypographyName, City) VALUES ('Академія Cisco', 'Europe');
+
+#INSERT INTO Book VALUES ();
+
+#INSERT INTO BookLanguage VALUES ();
+
+#INSERT INTO LUser VALUES ();
+
+#INSERT INTO Library VALUES ();
+
+
 
 
 #SELECT * FROM BookStatus;
