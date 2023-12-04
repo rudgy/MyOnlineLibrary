@@ -131,3 +131,4 @@ INSERT INTO Typography (TypographyName, City) VALUES ('Академія Cisco', 
 #SELECT * FROM LGroup;
 #SELECT * FROM Autor;
 #SELECT * FROM Genre;
+#SELECT City, COUNT(City) as 'Count of sity' FROM Typography GROUP BY City;
