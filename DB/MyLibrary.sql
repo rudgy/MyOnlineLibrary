@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS Book
 (
 	BookID INT NOT NULL AUTO_INCREMENT,
     AutorID INT,
+	BookName varchar(50),
     ReleaseData YEAR,
     CountPage INT,
     TypographyID INT,
@@ -116,15 +117,34 @@ INSERT INTO Typography (TypographyName, City) VALUES ('Питер', 'Санкт-
 INSERT INTO Typography (TypographyName, City) VALUES ('Українське видання', 'Україна');
 INSERT INTO Typography (TypographyName, City) VALUES ('Академія Cisco', 'Europe');
 
-#INSERT INTO Book VALUES ();
+#INSERT INTO Book VALUES (id, AutorID, BookName, ReleaseData, CountPage, TypographyID, LanguageID, GenreID, StatusID, UploadDate);
+INSERT INTO Book (AutorID, BookName, ReleaseData, CountPage, TypographyID, LanguageID, GenreID, StatusID, UploadDate) VALUES (1, 'Book1', '2021', 350, 1, 3, 3, 1, DATE '2023-12-04');
+INSERT INTO Book (AutorID, BookName, ReleaseData, CountPage, TypographyID, LanguageID, GenreID, StatusID, UploadDate) VALUES (2, 'Book2', '2020', 350, 1, 3, 3, 1, DATE '2023-12-04');
+INSERT INTO Book (AutorID, BookName, ReleaseData, CountPage, TypographyID, LanguageID, GenreID, StatusID, UploadDate) VALUES (3, 'Book3', '2022', 350, 1, 3, 3, 1, DATE '2023-12-04');
+INSERT INTO Book (AutorID, BookName, ReleaseData, CountPage, TypographyID, LanguageID, GenreID, StatusID, UploadDate) VALUES (4, 'Book3', '2022', 350, 1, 3, 3, 1, DATE '2023-12-04');
 
-#INSERT INTO BookLanguage VALUES ();
+#INSERT INTO BookLanguage VALUES (id,LanguageName);
+INSERT INTO BookLanguage (LanguageName) VALUES ('Ukraine');
+INSERT INTO BookLanguage (LanguageName) VALUES ('English');
+INSERT INTO BookLanguage (LanguageName) VALUES ('Russian');
 
-#INSERT INTO LUser VALUES ();
 
-#INSERT INTO Library VALUES ();
+#INSERT INTO LUser VALUES (id, UName, ULastName, UNickName, UPasswor, UGroupID);
+INSERT INTO LUser (UName, ULastName,UNickName, UPasswor, UGroupID) VALUES ('admin','admin','admin','admin',1);
+INSERT INTO LUser (UName, ULastName,UNickName, UPasswor, UGroupID) VALUES ('user1','user1','user1','asdwsx',2);
+INSERT INTO LUser (UName, ULastName,UNickName, UPasswor, UGroupID) VALUES ('user2','user2','user2','asdwsx',2);
+INSERT INTO LUser (UName, ULastName,UNickName, UPasswor, UGroupID) VALUES ('user3','user3','user3','asdwsx',2);
+
+#INSERT INTO Library VALUES (UserID, BookID);
+INSERT INTO Library (UserID, BookID) VALUES (1, 1);
+INSERT INTO Library (UserID, BookID) VALUES (2, 2);
+INSERT INTO Library (UserID, BookID) VALUES (2, 3);
 
 
+
+
+#UPDATE DATA IN TABLES
+#UPDATE Book SET ReleaseData = '1995';
 
 
 #SELECT * FROM BookStatus;
@@ -132,3 +152,5 @@ INSERT INTO Typography (TypographyName, City) VALUES ('Академія Cisco', 
 #SELECT * FROM Autor;
 #SELECT * FROM Genre;
 #SELECT City, COUNT(City) as 'Count of sity' FROM Typography GROUP BY City;
+
+#SELECT * FROM Book;
